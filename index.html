@@ -1,130 +1,136 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Web sin Bootstrap</title>
-    <!-- Enlace al archivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page - Proyecto Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            dark: '#1D2129',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .scroll-smooth {
+        scroll-behavior: smooth;
+      }
+    }
+  </style>
 </head>
-<body>
-
-    <!-- Barra de Navegación -->
-    <nav>
-        <div class="container nav-container">
-            <a class="logo" href="#">Mi Sitio Web</a>
-            <div class="menu-toggle" id="menuToggle">☰</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#" class="active">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Sección Principal / Hero -->
-    <section class="hero">
-        <div class="container">
-            <h1>Bienvenido a Nuestra Página</h1>
-            <p>Diseñada solo con HTML y CSS, moderna, rápida y adaptable a cualquier dispositivo.</p>
-            <a href="#servicios" class="btn">Ver Servicios</a>
-        </div>
-    </section>
-
-    <!-- Sección Nosotros -->
-    <section id="nosotros" class="nosotros">
-        <div class="container">
-            <div class="nosotros-grid">
-                <div class="nosotros-texto">
-                    <h2>Sobre Nosotros</h2>
-                    <p class="lead">Somos un equipo dedicado a ofrecer soluciones de calidad.</p>
-                    <p>Llevamos años trabajando para brindar la mejor experiencia a nuestros clientes, combinando diseño, tecnología y funcionalidad en cada proyecto que realizamos.</p>
-                    <p>Nuestra misión es ayudarte a crecer y alcanzar tus objetivos en el mundo digital.</p>
-                </div>
-                <div class="nosotros-imagen">
-                    <img src="https://picsum.photos/id/1018/600/400" alt="Nosotros">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Servicios -->
-    <section id="servicios" class="servicios">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="servicios-grid">
-                <!-- Tarjeta 1 -->
-                <div class="tarjeta">
-                    <img src="https://picsum.photos/id/0/600/400" alt="Servicio 1">
-                    <div class="tarjeta-contenido">
-                        <h3>Diseño Web</h3>
-                        <p>Creamos diseños atractivos, modernos y totalmente adaptables a móviles, tabletas y computadoras.</p>
-                    </div>
-                </div>
-                <!-- Tarjeta 2 -->
-                <div class="tarjeta">
-                    <img src="https://picsum.photos/id/180/600/400" alt="Servicio 2">
-                    <div class="tarjeta-contenido">
-                        <h3>Desarrollo</h3>
-                        <p>Programamos sitios y aplicaciones con las mejores tecnologías para garantizar rendimiento y seguridad.</p>
-                    </div>
-                </div>
-                <!-- Tarjeta 3 -->
-                <div class="tarjeta">
-                    <img src="https://picsum.photos/id/20/600/400" alt="Servicio 3">
-                    <div class="tarjeta-contenido">
-                        <h3>Soporte Técnico</h3>
-                        <p>Te acompañamos después del lanzamiento, brindando mantenimiento y soporte continuo para tu proyecto.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Contacto -->
-    <section id="contacto" class="contacto">
-        <div class="container">
-            <h2 class="section-title">Contáctanos</h2>
-            <form class="formulario">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" placeholder="Tu nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" placeholder="tu@correo.com">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    <div>
-        <iframe src="/src/index.html" frameborder="0"></iframe>
+<body class="font-sans text-dark bg-gray-50 scroll-smooth">
+  <!-- Navegación -->
+  <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-md z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="text-primary font-bold text-2xl">MiProyecto</a>
+      <div class="hidden md:flex gap-8">
+        <a href="#inicio" class="hover:text-primary transition">Inicio</a>
+        <a href="#caracteristicas" class="hover:text-primary transition">Características</a>
+        <a href="#nosotros" class="hover:text-primary transition">Nosotros</a>
+        <a href="formulario.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition">Registrarse</a>
+        <a href="dashboard.html" class="border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary/5 transition">Dashboard</a>
+      </div>
+      <button class="md:hidden text-dark text-xl">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
-    <!-- Pie de Página -->
-    <footer>
-        <div class="container">
-            <p>© 2025 Mi Sitio Web - Todos los derechos reservados</p>
+  </nav>
+
+  <!-- Sección Hero -->
+  <section id="inicio" class="pt-28 pb-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div class="order-2 md:order-1">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-dark">
+          Soluciones modernas para <span class="text-primary">tu negocio</span>
+        </h1>
+        <p class="mt-6 text-gray-600 text-lg">
+          Diseñamos herramientas intuitivas y potentes para impulsar tu productividad y alcanzar tus metas más rápido.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="formulario.html" class="bg-primary text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all">
+            Comenzar ahora
+          </a>
+          <a href="#caracteristicas" class="border border-gray-300 px-6 py-3 rounded-lg text-lg font-medium hover:bg-white transition-all">
+            Ver más
+          </a>
         </div>
-    </footer>
+      </div>
+      <div class="order-1 md:order-2">
+        <img src="https://picsum.photos/id/180/800/600" alt="Ilustración principal" class="rounded-2xl shadow-2xl w-full h-auto">
+      </div>
+    </div>
+  </section>
 
-    <!-- Pequeño código para el menú móvil -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
+  <!-- Características -->
+  <section id="caracteristicas" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,3vw,3rem)] font-bold">Características principales</h2>
+        <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Todo lo que necesitas en una sola plataforma, diseñada con las mejores prácticas de desarrollo y experiencia de usuario.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center text-xl mb-4">
+            <i class="fa fa-mobile"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Diseño Responsivo</h3>
+          <p class="text-gray-600">Se adapta perfectamente a móviles, tabletas y computadoras de cualquier tamaño.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center text-xl mb-4">
+            <i class="fa fa-shield"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Seguridad</h3>
+          <p class="text-gray-600">Protección de datos y protocolos de seguridad para mantener tu información segura.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center text-xl mb-4">
+            <i class="fa fa-line-chart"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Analíticas</h3>
+          <p class="text-gray-600">Informes detallados y métricas en tiempo real para tomar mejores decisiones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Nosotros -->
+  <section id="nosotros" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src="https://picsum.photos/id/326/800/600" alt="Nuestro equipo" class="rounded-2xl shadow-xl w-full h-auto">
+      </div>
+      <div>
+        <h2 class="text-[clamp(1.8rem,3vw,3rem)] font-bold mb-4">Sobre nosotros</h2>
+        <p class="text-gray-600 mb-4">Somos un equipo de desarrolladores y diseñadores apasionados por crear soluciones digitales de alta calidad. Con más de 5 años de experiencia, ayudamos a empresas de todos los tamaños a transformar sus procesos.</p>
+        <p class="text-gray-600 mb-6">Nuestra filosofía es combinar tecnología moderna con una experiencia de usuario excepcional. Usamos Tailwind CSS y otras herramientas líderes en la industria para garantizar rendimiento y mantenibilidad.</p>
+        <a href="formulario.html" class="text-primary font-medium hover:underline inline-flex items-center gap-2">
+          Únete ahora <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="bg-dark text-white py-10">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2026 Mi Proyecto Tailwind | Todos los derechos reservados</p>
+    </div>
+  </footer>
 </body>
 </html>
